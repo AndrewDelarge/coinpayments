@@ -1,5 +1,5 @@
 {
-  "name": "sigismund/coinpayments",
+  "name": "andre_delarge/coinpayments",
   "description": "CoinPayments API client",
   "keywords": ["payment processor", "crypto", "cryptocurrency", "crypto payment", "coinpayments", "coinp ayments"],
   "type": "library",
@@ -8,6 +8,10 @@
     {
       "name": "Žiga Drnovšček",
       "email": "web@sigismund.si"
+    },
+    {
+      "name": "Andrey",
+      "email": "simple@gmail.com"
     }
   ],
   "minimum-stability": "stable",
