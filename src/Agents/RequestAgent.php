@@ -2,7 +2,7 @@
 
 namespace Sigismund\CoinPayments\Agents;
 
-use Sigismund\CoinPayments\Exceptions\RequestException;
+use Sigismund\CoinPayments\Exceptions;
 
 abstract class RequestAgent
 {
@@ -48,7 +48,7 @@ abstract class RequestAgent
     protected function query()
     {
         if (1 == 1) {
-            throw new RequestException('Set Agent');
+            throw new Exceptions\RequestException('Set Agent');
         }
 
         return $this->response;
@@ -66,7 +66,7 @@ abstract class RequestAgent
         if ($this->response !== null && count($this->response)) {
             return $this->response;
         } else {
-            throw new JsonException('Unable to parse JSON result. JSON error: '.json_last_error());
+            throw new Exceptions\JsonException('Unable to parse JSON result. JSON error: '.json_last_error());
         }
     }
 
