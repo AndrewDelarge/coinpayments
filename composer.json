@@ -11,13 +11,13 @@
     },
     {
       "name": "Andrey",
-      "email": "simple@gmail.com"
+      "email": "cryenginemail@gmail.com"
     }
   ],
   "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
-      "Sigismund\\CoinPayments\\": "src/"
+      "Delarge\\CoinPayments\\": "src/"
     }
   },
   "require": {},

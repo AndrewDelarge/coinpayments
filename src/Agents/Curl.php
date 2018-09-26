@@ -1,8 +1,8 @@
 <?php
 
-namespace Sigismund\CoinPayments\Agents;
+namespace Delarge\CoinPayments\Agents;
 
-use Sigismund\CoinPayments\Exceptions\RequestException;
+use Delarge\CoinPayments\Exceptions\RequestException;
 
 class Curl extends RequestAgent
 {
@@ -20,13 +20,15 @@ class Curl extends RequestAgent
         curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array('HMAC: '. $this->getQuerySignature()));
         curl_setopt($curlHandler, CURLOPT_POSTFIELDS, $this->getQueryString());
 
-        $this->response = curl_exec($curlHandler);
+        $this->rawResponse = curl_exec($curlHandler);
         curl_close($curlHandler);
 
-        if ($this->response === false) {
+
+
+        if ($this->rawResponse === false) {
             throw new RequestException('cURL error: '.curl_error($curlHandler));
         }
-
-        return $this->response;
+        
+        return $this->rawResponse;
     }
 }

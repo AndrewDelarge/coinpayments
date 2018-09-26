@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigismund\CoinPayments\Exceptions;
+namespace Delarge\CoinPayments\Exceptions;
 
 class GeneralException extends \Exception
 {

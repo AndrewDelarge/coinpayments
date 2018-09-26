@@ -1,9 +1,10 @@
 <?php
 
-namespace Sigismund\CoinPayments;
+namespace Delarge\CoinPayments;
 
 
-use Sigismund\CoinPayments\Agents\Curl;
+use Delarge\CoinPayments\Agents\Curl;
+use Delarge\CoinPayments\Dictionanaries\Api;
 
 class CoinPayments
 {
@@ -67,7 +68,7 @@ class CoinPayments
      */
     public function getRates(bool $short = true, bool $accepted = true)
     {
-        return $this->apiCall(Commands::RATES, ['short' => (int)$short, 'accepted' => (int)$accepted]);
+        return $this->apiCall(Api\Commands::RATES, ['short' => (int)$short, 'accepted' => (int)$accepted]);
     }
 
     /**
@@ -78,7 +79,7 @@ class CoinPayments
      */
     public function getBasicInfo()
     {
-        return $this->apiCall(Commands::BASIC_INFO, []);
+        return $this->apiCall(Api\Commands::BASIC_INFO, []);
     }
 
     /**
@@ -93,7 +94,7 @@ class CoinPayments
      */
     public function getDepositAddress(string $currency)
     {
-        return $this->apiCall(Commands::GET_DEPOSIT_ADDRESS, ['currency' => $currency]);
+        return $this->apiCall(Api\Commands::GET_DEPOSIT_ADDRESS, ['currency' => $currency]);
     }
 
     /**
@@ -106,7 +107,7 @@ class CoinPayments
      */
     public function getBalances($all = false)
     {
-        return $this->apiCall(Commands::BALANCES, ['all' => $all ? 1 : 0]);
+        return $this->apiCall(Api\Commands::BALANCES, ['all' => $all ? 1 : 0]);
     }
 
     /**
@@ -142,7 +143,9 @@ class CoinPayments
             $parameters['ipn_url'] = $this->getIpnUrl();
         }
 
-        return $this->apiCall(Commands::CREATE_TRANSACTION, $parameters);
+        
+        
+        return $this->apiCall(Api\Commands::CREATE_TRANSACTION, $parameters);
     }
 
     /**
@@ -161,7 +164,7 @@ class CoinPayments
             'full' => (int)$all
         ];
 
-        return $this->apiCall(Commands::GET_TX_INFO, $parameters);
+        return $this->apiCall(Api\Commands::GET_TX_INFO, $parameters);
     }
 
     /**
@@ -182,7 +185,7 @@ class CoinPayments
             'all' => $all
         ];
 
-        return $this->apiCall(Commands::GET_TX_IDS, $parameters);
+        return $this->apiCall(Api\Commands::GET_TX_IDS, $parameters);
     }
 
     /**
@@ -200,7 +203,7 @@ class CoinPayments
             'ipn_url' => $this->getIpnUrl(),
         ];
 
-        return $this->apiCall(Commands::GET_CALLBACK_ADDRESS, $parameters);
+        return $this->apiCall(Api\Commands::GET_CALLBACK_ADDRESS, $parameters);
     }
 
     /**
@@ -224,7 +227,7 @@ class CoinPayments
             'ipn_url' => $this->getIpnUrl()
         ];
 
-        return $this->apiCall(Commands::CREATE_WITHDRAWAL, $parameters);
+        return $this->apiCall(Api\Commands::CREATE_WITHDRAWAL, $parameters);
     }
 
     /**
@@ -247,7 +250,7 @@ class CoinPayments
             'auto_confirm' => $autoConfirm ? 1 : 0
         ];
 
-        return $this->apiCall(Commands::CREATE_TRANSFER, $parameters);
+        return $this->apiCall(Api\Commands::CREATE_TRANSFER, $parameters);
     }
 
     /**
@@ -270,7 +273,7 @@ class CoinPayments
             'auto_confirm' => $autoConfirm ? 1 : 0
         ];
 
-        return $this->apiCall(Commands::CREATE_TRANSFER, $parameters);
+        return $this->apiCall(Api\Commands::CREATE_TRANSFER, $parameters);
     }
 
     /**

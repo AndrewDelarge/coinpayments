@@ -1,28 +1,32 @@
-# CoinPayments PHP library
-This is basic PHP library for [CoinPayments API](https://goo.gl/mj98qm). It's written without any external dependencies and it allows you to add your own HTTP agents like Guzzle.
-[CoinPayments](https://goo.gl/mj98qm) is one of the largest cryptocurrency payment processors. They support over few hundred cryptocurrencies. Amongst those are better known 
-Bitcoin, Litecoin, Ethereum, Monero... some lesser known/used coins like Ubiq, Peercoin, GameCredits and they even support shitcoins like Ripple.
+# CoinPayments PHP library FIXED
+
+** FIXED **
+
+I fork original repository and fix it, now it works well with CoinPayments Api
+
+This is basic PHP library for [CoinPayments API](https://goo.gl/mj98qm).
+
 
 ## Sample usage
 
 
 ```php
-use Sigismund\CoinPayments;
+use Delarge\CoinPayments;
 
 $coinPaymentsAPI = new CoinPayments($merchantID, $publicKey, $privateKey, $ipnSecret);
 
 // Get conversion rates for all supported currencies
-$rates = $coinPaymentsAPI->getRates();
+$rates = $coinPaymentsAPI->getRates()->getResponse();
 
 // Sample transaction for 16$
-$coinPaymentsAPI->createTransaction(16, 'USD', 'BTC', $additional = []);
+$coinPaymentsAPI->createTransaction(16, 'USD', 'BTC', $additional = [])->getResponse();
 ```
 
 ## Getting Started
 
 ### Requirements
 
-* PHP >= 7.0
+* PHP >= 7.1
 
 This library does not have any external dependencies. 
 
@@ -39,45 +43,28 @@ curl -sS https://getcomposer.org/installer | php
 Next, run the Composer command to install the latest stable version of CoinPayments PHP library:
 
 ```sh
-composer require sigismund/coinpayments
+composer require andre_delarge/coinpayments
 ```
-
 After installing, you need to require Composer's autoloader:
 ```php
 require 'vendor/autoload.php';
 ```
-
 You can then later update library using composer:
 ```sh
 composer.phar update
 ```
 
-
-## Testing
-... all pull requests are welcome ;)
-
 ## Contributing
 
 Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/sigismund/coinpayments/tags). 
-
 ## Authors
 
 * **Žiga Drnovšček** - *Initial work* - [Sigismund](https://github.com/sigismund)
+* **Andrew Delarge** - *Fixing* - [AndrewDelarge](https://github.com/andrewdelarge)
 
-See also the list of [contributors](https://github.com/sigismund/coinpayments/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/andrewdelarge/coinpayments/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
-

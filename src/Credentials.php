@@ -1,6 +1,6 @@
 <?php
 
-namespace Sigismund\CoinPayments;
+namespace Delarge\CoinPayments;
 
 
 class Credentials

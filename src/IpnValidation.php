@@ -1,9 +1,9 @@
 <?php
 
-namespace Sigismund\CoinPayments;
+namespace Delarge\CoinPayments;
 
-use Sigismund\CoinPayments\Exceptions\OrderException;
-use Sigismund\CoinPayments\Exceptions\ValidationException;
+use Delarge\CoinPayments\Exceptions\OrderException;
+use Delarge\CoinPayments\Exceptions\ValidationException;
 
 class IpnValidation
 {

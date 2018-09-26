@@ -1,9 +1,9 @@
 <?php
 
-namespace Sigismund\CoinPayments;
+namespace Delarge\CoinPayments;
 
-use Sigismund\CoinPayments\Agents\RequestAgent;
-use Sigismund\CoinPayments\Exceptions\JsonException;
+use Delarge\CoinPayments\Agents\RequestAgent;
+use Delarge\CoinPayments\Exceptions\JsonException;
 
 class ApiCall
 {
@@ -57,6 +57,7 @@ class ApiCall
         $this->getAgent()->setQuerySignature($this->generateQuerySignature());
         $this->getAgent()->setQueryString($this->getQueryString());
         $this->getAgent()->execute();
+        $this->response = $this->getAgent()->getResponse();
     }
 
 
@@ -101,8 +102,11 @@ class ApiCall
         $request = [
             'version' => self::API_VERSION,
             'cmd' => $this->getCommand(),
-            'format' => 'json'
+            'format' => 'json',
+            'key' => $this->getCredentials()->getPublicKey()
         ];
+
+        $request = array_merge($request, $this->getParameters());
 
         return $this->queryString = http_build_query($request, '', '&');
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Sigismund\CoinPayments\Agents;
+namespace Delarge\CoinPayments\Agents;
 
-use Sigismund\CoinPayments\Exceptions;
+use Delarge\CoinPayments\Exceptions;
 
 abstract class RequestAgent
 {
