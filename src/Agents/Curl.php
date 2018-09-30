@@ -8,7 +8,7 @@ class Curl extends RequestAgent
 {
     /**
      * @return mixed
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function query()
     {

@@ -38,7 +38,7 @@ class ApiCall
     protected $agent;
 
     /**
-     * @var \Sigismund\CoinPayments\Credentials
+     * @var \Delarge\CoinPayments\Credentials
      */
     protected $credentials;
 
@@ -50,7 +50,7 @@ class ApiCall
     }
 
     /**
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function execute()
     {
@@ -86,7 +86,7 @@ class ApiCall
     }
 
     /**
-     * @return \Sigismund\CoinPayments\Credentials
+     * @return \Delarge\CoinPayments\Credentials
      */
     public function getCredentials(): Credentials
     {
@@ -126,7 +126,7 @@ class ApiCall
     }
 
     /**
-     * @return \Sigismund\CoinPayments\Agents\RequestAgent
+     * @return \Delarge\CoinPayments\Agents\RequestAgent
      */
     public function getAgent()
     {
@@ -134,7 +134,7 @@ class ApiCall
     }
 
     /**
-     * @param \Sigismund\CoinPayments\Agents\RequestAgent $agent
+     * @param \Delarge\CoinPayments\Agents\RequestAgent $agent
      */
     public function setAgent(RequestAgent $agent): void
     {

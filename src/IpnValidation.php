@@ -22,7 +22,7 @@ class IpnValidation
      * Checks $_POST data for required statuses
      * https://www.coinpayments.net/merchant-tools-ipn
      *
-     * @throws \Sigismund\CoinPayments\Exceptions\ValidationException
+     * @throws \Delarge\CoinPayments\Exceptions\ValidationException
      */
     public function checkRequiredData()
     {
@@ -39,7 +39,7 @@ class IpnValidation
      * If $order_status is >100 or is 2, return true
      *
      * @return bool
-     * @throws \Sigismund\CoinPayments\Exceptions\OrderException
+     * @throws \Delarge\CoinPayments\Exceptions\OrderException
      */
     public function checkOrderSuccess()
     {
@@ -128,9 +128,9 @@ class IpnValidation
     }
 
     /**
-     * @param \Sigismund\CoinPayments\Credentials $credentials
+     * @param \Delarge\CoinPayments\Credentials $credentials
      */
-    public function setCredentials(\Sigismund\CoinPayments\Credentials $credentials): void
+    public function setCredentials(\Delarge\CoinPayments\Credentials $credentials): void
     {
         $this->credentials = $credentials;
     }

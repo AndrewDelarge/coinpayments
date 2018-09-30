@@ -33,7 +33,7 @@ abstract class RequestAgent
 
     /**
      * @return mixed
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function execute()
     {
@@ -43,7 +43,7 @@ abstract class RequestAgent
 
     /**
      * @return mixed
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     protected function query()
     {

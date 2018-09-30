@@ -10,12 +10,12 @@ class CoinPayments
 {
 
     /**
-     * @var \Sigismund\CoinPayments\Credentials
+     * @var \Delarge\CoinPayments\Credentials
      */
     protected $credentials;
 
     /**
-     * @var \Sigismund\CoinPayments\Agents\RequestAgent
+     * @var \Delarge\CoinPayments\Agents\RequestAgent
      */
     protected $requestAgent;
 
@@ -45,8 +45,8 @@ class CoinPayments
      * @param string $command
      * @param array $parameters
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     protected function apiCall(string $command, array $parameters)
     {
@@ -63,8 +63,8 @@ class CoinPayments
      * @param bool $short The output won't include the currency names and confirms needed to save bandwidth.
      * @param bool $accepted The response will include coin acceptance on your Coin Acceptance Settings page.
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function getRates(bool $short = true, bool $accepted = true)
     {
@@ -74,8 +74,8 @@ class CoinPayments
     /**
      * Get basic account info
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function getBasicInfo()
     {
@@ -89,8 +89,8 @@ class CoinPayments
      *
      * @param string $currency The currency the buyer will be sending.
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function getDepositAddress(string $currency)
     {
@@ -102,8 +102,8 @@ class CoinPayments
      *
      * @param bool $all If true it will return all coins, even those with a 0 balance.
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function getBalances($all = false)
     {
@@ -118,8 +118,8 @@ class CoinPayments
      * @param string $currencyOut The cryptocurrency of the transaction.
      * @param array $additional Optionally set additional fields
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function createTransaction(float $amount, string $currencyIn, string $currencyOut, $additional = [])
     {
@@ -154,8 +154,8 @@ class CoinPayments
      * @param string $txID
      * @param bool $all
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function getTransactionInfo($txID, $all = true)
     {
@@ -173,8 +173,8 @@ class CoinPayments
      * @param int|null $newer
      * @param bool|null $all
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function getTransactionsList($limit = null, $start = null, $newer = null, $all = null)
     {
@@ -193,8 +193,8 @@ class CoinPayments
      *
      * @param float $currency The cryptocurrency to create a receiving address for.
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function getCallbackAddress(float $currency)
     {
@@ -214,8 +214,8 @@ class CoinPayments
      * @param string $address The address to send the coins to.
      * @param bool $autoConfirm If true, then the withdrawal will be performed without an email confirmation.
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function createWithdrawal(float $amount, string $currency, string $address, bool $autoConfirm = false)
     {
@@ -238,8 +238,8 @@ class CoinPayments
      * @param string $pbnTag The $PayByName tag to send funds to.
      * @param bool $autoConfirm If true, then the transfer will be performed without an email confirmation.
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function sendToPayByName(float $amount, string $currency, string $pbnTag, $autoConfirm = false)
     {
@@ -261,8 +261,8 @@ class CoinPayments
      * @param string $merchant The merchant ID to send the coins to.
      * @param bool $autoConfirm If true, then the transfer will be performed without an email confirmation.
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function createTransfer(float $amount, string $currency, string $merchant, $autoConfirm = false)
     {
@@ -283,8 +283,8 @@ class CoinPayments
      * @param string $command
      * @param array $parameters
      *
-     * @return \Sigismund\CoinPayments\ApiCall
-     * @throws \Sigismund\CoinPayments\Exceptions\RequestException
+     * @return \Delarge\CoinPayments\ApiCall
+     * @throws \Delarge\CoinPayments\Exceptions\RequestException
      */
     public function queryAPI(string $command, array $parameters)
     {
@@ -292,7 +292,7 @@ class CoinPayments
     }
 
     /**
-     * @return \Sigismund\CoinPayments\Credentials
+     * @return \Delarge\CoinPayments\Credentials
      */
     public function getCredentials()
     {
