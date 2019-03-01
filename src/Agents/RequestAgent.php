@@ -63,7 +63,12 @@ abstract class RequestAgent
         } else {
             $this->response = json_decode($this->getRawResponse(), true);
         }
+
         if ($this->response !== null && count($this->response)) {
+            if ($this->response['error'] != 'ok') {
+                throw new Exceptions\RequestException('Request to CoinPayments was unsuccessful: ' . $this->response['error']);
+            }
+
             return $this->response;
         } else {
             throw new Exceptions\JsonException('Unable to parse JSON result. JSON error: '.json_last_error());
